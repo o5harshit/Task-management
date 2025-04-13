@@ -4,7 +4,8 @@ A full-featured Task Management platform built using the **MERN Stack** (MongoDB
 
 ---
 ### 🔗 Deployment Link  
-<sub>The Admin Panel - [https://task-management-client-7ls9.onrender.com/auth](https://task-management-client-7ls9.onrender.com/auth) | The User Panel/Team Member Panel - [https://task-management-admin-hmuk.onrender.com/login](https://task-management-admin-hmuk.onrender.com/login)</sub>
+The Admin Panel - [https://task-management-client-7ls9.onrender.com/auth](https://task-management-client-7ls9.onrender.com/auth) | The User Panel/Team Member Panel - [https://task-management-admin-hmuk.onrender.com/login](https://task-management-admin-hmuk.onrender.com/login)
+
 
 ---
  🚀 Features
