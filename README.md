@@ -3,9 +3,9 @@
 A full-featured Task Management platform built using the **MERN Stack** (MongoDB, Express.js, React.js, Node.js) with role-based authentication and real-time collaboration features.
 
 ---
-The Deployment Link of the Project is -
-The Admin Panel - https://task-management-client-7ls9.onrender.com/auth
-The User Panel/Team member Panel - https://task-management-admin-hmuk.onrender.com/login
+### 🔗 Deployment Link  
+<sub>The Admin Panel - [https://task-management-client-7ls9.onrender.com/auth](https://task-management-client-7ls9.onrender.com/auth) | The User Panel/Team Member Panel - [https://task-management-admin-hmuk.onrender.com/login](https://task-management-admin-hmuk.onrender.com/login)</sub>
+
 ---
  🚀 Features
 
