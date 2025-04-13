@@ -36,7 +36,7 @@ const TaskDetails = () => {
           ))}
         </div>
       ) : (
-        <TaskComments comments={comments} loading={loading} setLoading={setLoading} />
+        <TaskComments comments={comments} loading={loading} setLoading={setLoading} setComments={setComments} />
       )}
     </div>
   );

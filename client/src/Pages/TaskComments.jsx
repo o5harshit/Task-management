@@ -9,6 +9,7 @@ import { COMMENT_ROUTES } from "@/utils/constants";
 import axios from "axios";
 import { toast } from "sonner";
 import { useParams } from "react-router-dom";
+import { apiClient } from "@/lib/api-client";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -23,10 +24,24 @@ const fadeInUp = {
   }),
 };
 
-const TaskComments = ({ comments = [], loading, setLoading }) => {
+const TaskComments = ({ comments = [], loading,setComments, setLoading }) => {
   const [showForm, setShowForm] = useState(false);
   const { taskId } = useParams();
   const [newComment, setNewComment] = useState("");
+
+  const fetchComments = async () => {
+    try {
+      const res = await apiClient.get(`${COMMENT_ROUTES}/project/${taskId}/comment`);
+      console.log(res);
+      setComments(res.data || []);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchComments();
 
   const handleAddComment = async () => {
     if (newComment.trim() === "") return;
@@ -41,7 +56,6 @@ const TaskComments = ({ comments = [], loading, setLoading }) => {
       );
       console.log(response);
       setNewComment("");
-      window.location.reload();
       setShowForm(false);
     } catch (err) {
       console.error("Error adding comment:", err);

@@ -9,6 +9,7 @@ import { COMMENT_ROUTES } from "@/utils/constants";
 import axios from "axios";
 import { toast } from "sonner";
 import { useParams } from "react-router-dom";
+import { apiClient } from "@/lib/api-client";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -23,10 +24,24 @@ const fadeInUp = {
   }),
 };
 
-const TaskComments = ({ comments = [], loading, setLoading }) => {
+const TaskComments = ({ comments = [],setComments, loading, setLoading }) => {
   const [showForm, setShowForm] = useState(false);
   const { taskId } = useParams();
   const [newComment, setNewComment] = useState("");
+
+  const fetchComments = async () => {
+    try {
+      const res = await apiClient.get(`${COMMENT_ROUTES}/project/${taskId}/comment`);
+      console.log(res);
+      setComments(res.data || []);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchComments();
 
   const handleAddComment = async () => {
     if (newComment.trim() === "") return;
@@ -42,7 +57,6 @@ const TaskComments = ({ comments = [], loading, setLoading }) => {
       console.log(response);
       setNewComment("");
       setShowForm(false);
-      window.location.reload();
     } catch (err) {
       console.error("Error adding comment:", err);
       toast.error("Failed to add comment.");
@@ -79,13 +93,13 @@ const TaskComments = ({ comments = [], loading, setLoading }) => {
                         alt={comment.author?.name || "User"}
                       />
                       <AvatarFallback>
-                        {comment.author?.name?.charAt(0) || "U"}
+                        {comment.author?.name?.charAt(0) || "A"}
                       </AvatarFallback>
                     </Avatar>
 
                     <div>
                       <h4 className="font-semibold text-purple-700">
-                        {comment.author?.name || "Admin"}*
+                        {comment.author?.name || "Admin"}
                       </h4>
                       <p className="text-gray-700 text-sm">{comment.content}</p>
                       <span className="text-xs text-gray-500">

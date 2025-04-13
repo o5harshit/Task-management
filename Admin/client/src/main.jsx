@@ -20,6 +20,7 @@ import UserTasksSplit from "./components/UserTasksSplit";
 import { PrivateRoute } from "./lib/PrivateRoute";
 import { ProtectedAuthRoute } from "./lib/ProtectedAuthRoute";
 import TaskDetails from "./components/TaskDetails";
+import TaskComments from "./Pages/TaskComments";
 
 const browseRoutes = createBrowserRouter([
   {
