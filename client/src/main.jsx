@@ -11,7 +11,7 @@ import Auth from "./auth/Auth";
 import { Toaster } from "./components/ui/sonner";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
-import Memberdashboard from "./member-dashboard/memberdashboard";
+import Memberdashboard from "./member-dashboard/Memberdashboard";
 import ProjectsPage from "./components/ProjectsPage";
 import ProjectDetails from "./components/ProjectDetails";
 import TaskDetails from "./components/TaskDetails";
